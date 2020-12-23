@@ -1,4 +1,4 @@
-# dataStructure-baseClass
+# Data structure base class
 Basic classes commonly used in data structures
 
 ## Array
