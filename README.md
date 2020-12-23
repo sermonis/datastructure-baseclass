@@ -31,7 +31,7 @@ Basic classes commonly used in data structures
 * forEach runs the given function on each item in the array. This method has no return value
 * The reduce method receives a function as a parameter. This function has four parameters: previousValue, currentValue, index and array. This function will return a value that will be added to the accumulator, which will be returned after the reduce method stops executing. This is useful if you want to sum all the elements in an array
 
-### search for
+### Search for
 * indexOf returns the index of the first array element equal to the given parameter, or -1 if not found
 * lastIndexOf returns the largest value in the index of the element equal to the given parameter searched in the array
 * includes returns true if there is an element in the array, otherwise it returns false. ES7 new
