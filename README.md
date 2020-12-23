@@ -2,76 +2,81 @@
 Basic classes commonly used in data structures
 
 ## Array
-### 输出数组为字符串
-* join 将所有的数组元素连接成一个字符串
-* toString 将数组作为字符串返回
-* valueOf 和toString类似，将数组作为字符串返回
+### Output array as string
+* join connects all array elements into a string
+* toString returns the array as a string
+* valueOf is similar to toString, returning the array as a string
+
 ### @@iterator
-* @@iterator 返回一个包含数组键值对的迭代器对象，可以通过同步调用得到数组元素的键值对
-* entries 返回包含数组所有键值对的@@iterator
-* keys 返回包含数组所有索引的@@iterator
-* values 返回包含数组中所有值的@@iterator
-### 填充数组
-* copyWithin 复制数组中一系列元素到同一数组指定的起始位置
-* fill 用静态值填充数组
-* from 根据已有数组创建一个新数组
-* of 根据传入的参数创建一个新数组
-* slice 传入索引值，将数组里对应索引范围内的元素作为新数组返回
-### 数组合并
-* concat 连接2个或更多数组，并返回结果
-### 迭代器函数
-* some 对数组中的每一项运行给定函数，如果任一项返回true，则返回true
-* every 对数组中的每一项运行给定函数，如果该函数对每一项都返回true，则返回true
-* map 对数组中的每一项运行给定函数，返回每次函数调用的结果组成的数组
-* filter 对数组中的每一项运行给定函数，返回该函数会返回true的项组成的数组
-* forEach 对数组中的每一项运行给定函数。这个方法没有返回值
-* reduce 方法接收一个函数作为参数，这个函数有四个参数：previousValue、currentValue、index和array。这个函数会返回一个将被叠加到累加器的值，reduce方法停止执行后会返回这个累加器。如果要对一个数组中的所有元素求和，这就很有用
-### 搜索
-* indexOf 返回第一个与给定参数相等的数组元素的索引，没有找到则返回-1
-* lastIndexOf 返回在数组中搜索到的与给定参数相等的元素的索引里最大的值
-* includes 如果数组中存在某个元素则返回true，否则返回false。ES7新增
-* find 根据回调函数给定的条件从数组中查找元素，如果找到则返回该元素
-* findIndex 根据回调函数给定的条件从数组中查找元素，如果找到则返回该元素在数组中的索引
-### 排序
-* sort 按照字母顺序对数组排序，支持传入指定排序方法的函数作为参数
-* reverse 颠倒数组中元素的顺序，原先第一个元素现在变成最后一个，同样原先的最后一个元素变成了现在的第一个
+* @@iterator returns an iterator object containing array key-value pairs, which can be called by synchronously to get the key-value pairs of array elements
+* entries return @@iterator containing all key-value pairs of the array
+* keys return @@iterator containing all indexes of the array
+* values returns @@iterator containing all the values in the array
+
+### Fill the array
+* copyWithin copies a series of elements in the array to the specified starting position of the same array
+* fill fills the array with static values
+* from creates a new array based on the existing array
+* of creates a new array based on the parameters passed in
+* slice passes in the index value, and returns the elements in the corresponding index range in the array as a new array
+
+### Array merge
+* concat connects 2 or more arrays and returns the result
+
+### Iterator function
+* some runs the given function on each item in the array, if any item returns true, it returns true
+* every runs the given function for each item in the array, if the function returns true for each item, it returns true
+* map runs a given function on each item in the array and returns an array composed of the results of each function call
+* filter runs a given function on each item in the array, and returns an array of items that the function returns true
+* forEach runs the given function on each item in the array. This method has no return value
+* The reduce method receives a function as a parameter. This function has four parameters: previousValue, currentValue, index and array. This function will return a value that will be added to the accumulator, which will be returned after the reduce method stops executing. This is useful if you want to sum all the elements in an array
+
+### search for
+* indexOf returns the index of the first array element equal to the given parameter, or -1 if not found
+* lastIndexOf returns the largest value in the index of the element equal to the given parameter searched in the array
+* includes returns true if there is an element in the array, otherwise it returns false. ES7 new
+* find finds an element from the array according to the conditions given by the callback function, and returns the element if found
+* findIndex finds an element from the array according to the conditions given by the callback function, and returns the index of the element in the array if found
+
+### Sort
+* sort sorts the array in alphabetical order, supports passing in the function of the specified sorting method as a parameter
+* reverse reverses the order of the elements in the array, the original first element now becomes the last, and the original last element becomes the current first
 
 ## Stack
-> 栈的实际应用非常广泛。在回溯问题中，它可以存储访问过的任务或路径、撤销的操作
-* 栈是一种遵从后进先出（LIFO）原则的有序集合。
-* 新添加的或待删除的元素都保存在栈的同一端，称作栈顶，另一端就叫栈底。在栈里，新元素都靠近栈顶，旧元素都接近栈底。
-
+> The actual application of the stack is very extensive. In the backtracking problem, it can store tasks or paths that have been visited, and undo operations
+* A stack is an ordered collection that complies with the LIFO principle.
+* Newly added or to-be-deleted elements are stored on the same end of the stack, called the top of the stack, and the other end is called the bottom of the stack. In the stack, new elements are close to the top of the stack, and old elements are close to the bottom of the stack.
 
 ## Queue
-> 队列是遵循FIFO（First In First Out，先进先出，也称为先来先服务）原则的一组有序的项。队列在尾部添加新元素，并从顶部移除元素。最新添加的元素必须排在队列的末尾。
-* 在浏览器中打开新标签时，就会创建一个任务队列。这是因为每个标签都是单线程处理所有的任务，它被称为事件循环。浏览器要负责多个任务，如渲染HTML，执行JavaScript代码，处理用户交互（用户输入、鼠标点击等），执行和处理异步请求。
-* 两种非常著名的特殊队列的实现：优先队列和循环队列。
+> Queue is a group of ordered items following the FIFO (First In First Out, also known as first come first serve) principle. The queue adds new elements at the end and removes elements from the top. The newly added element must be at the end of the queue.
+* When you open a new tab in the browser, a task queue will be created. This is because each tag handles all tasks in a single thread, and it is called an event loop. The browser is responsible for multiple tasks, such as rendering HTML, executing JavaScript code, handling user interaction (user input, mouse clicks, etc.), and executing and processing asynchronous requests.
+* The realization of two very famous special queues: priority queue and circular queue.
 
 ## LinkedList
->数组的大小是固定的，从数组的起点或中间插入或移除项的成本很高，因为需要移动元素。
->链表存储有序的元素集合，但不同于数组，链表中的元素在内存中并不是连续放置的。每个元素由一个存储元素本身的节点和一个指向下一个元素的引用（也称指针或链接）组成。
-* 相对于传统的数组，链表的一个好处在于，`添加`或`移除`元素的时候不需要移动其他元素。然而，链表需要使用指针，因此实现链表时需要额外注意。
-* 数组的另一个细节是可以`直接访问任何位置的任何元素`，而要想访问链表中间的一个元素，需要从`起点（表头）开始迭代列表直到找到所需的元素`
-* 单向链表和双向链表
+> The size of the array is fixed, and the cost of inserting or removing items from the beginning or middle of the array is high because of the need to move elements.
+>The linked list stores an ordered collection of elements, but unlike an array, the elements in the linked list are not placed consecutively in memory. Each element consists of a node that stores the element itself and a reference (also called a pointer or link) to the next element.
+* Compared to traditional arrays, one advantage of linked lists is that there is no need to move other elements when `add` or `remove` elements. However, the linked list requires the use of pointers, so additional attention is required when implementing the linked list.
+* Another detail of the array is that you can `directly access any element in any position`, and to access an element in the middle of the linked list, you need to iterate the list from the `start point (head of the list) until you find the desired element`
+* Singly linked list and doubly linked list
 
 ## Set
->不允许重复对象 
+> Do not allow duplicate objects
 
-**对集合可以进行如下操作。**
-+ 并集：对于给定的两个集合，返回一个包含两个集合中所有元素的新集合。
-+ 交集：对于给定的两个集合，返回一个包含两个集合中共有元素的新集合。
-+ 差集：对于给定的两个集合，返回一个包含所有存在于第一个集合且不存在于第二个集合的元素的新集合。
-+ 子集：验证一个给定集合是否是另一集合的子集。
+**The following operations can be performed on the collection. **
++ Union: For the given two sets, return a new set containing all the elements in the two sets.
++ Intersection: For the given two sets, return a new set containing the elements in common in the two sets.
++ Difference set: For the given two sets, return a new set containing all the elements that exist in the first set but not in the second set.
++ Subset: verify whether a given set is a subset of another set.
 
 ## Dictionary
-> 集合表示一组互不相同的元素（不重复的元素）。在字典中，存储的是[键，值]对，其中键名是用来查询特定元素的。字典和集合很相似，集合以[值，值]的形式存储元素，字典则是以[键，值]的形式来存储元素。字典也称作映射。
+> A set represents a group of different elements (not repeating elements). In the dictionary, [key, value] pairs are stored, where the key name is used to query specific elements. Dictionaries are very similar to sets. Sets store elements in the form of [value, value], and dictionaries store elements in the form of [key, value]. Dictionaries are also called mappings.
 ### HashMap
-它是Dictionary类的一种散列表实现方式。散列算法的作用是尽可能快地在数据结构中找到一个值。  
-一般如果要在数据结构中获得一个值（使用get方法），需要遍历整个数据结构来找到它。如果使用散列函数，就知道值的具体位置，因此能够快速检索到该值。  
-散列函数的作用是给定一个键值，然后返回值在表中的地址。
+It is a hash table implementation of the Dictionary class. The purpose of the hash algorithm is to find a value in the data structure as quickly as possible.
+Generally, if you want to get a value in a data structure (using the get method), you need to traverse the entire data structure to find it. If you use a hash function, you know the specific location of the value, so you can quickly retrieve the value.
+The function of the hash function is to give a key value and then return the address of the value in the table.
 
 ## binary-tree
-> 一种非顺序数据结构——树，它对于存储需要快速查找的数据非常有用
-* 前序遍历：可以用来实现目录结构的显示
-* 后序遍历：可以用来做表达式树，在编译器底层实现的时候用户可以实现基本的加减乘除，比如 a*b+c
-* 后序遍历：计算一个目录和它的子目录中所有文件所占空间的大小
+> A non-sequential data structure-tree, which is very useful for storing data that needs to be quickly found
+* Preorder traversal: can be used to display the directory structure
+* Post-order traversal: It can be used as an expression tree, and users can implement basic addition, subtraction, multiplication and division when implemented at the bottom of the compiler, such as a*b+c
+* Post-order traversal: calculate the size of the space occupied by all files in a directory and its subdirectories
